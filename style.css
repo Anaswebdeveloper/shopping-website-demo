@@ -255,6 +255,9 @@ nav a:hover{
     box-shadow:var(--glass-shadow);
     transition:transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
     border:1px solid var(--glass-border);
+    display:flex;
+    flex-direction:column;
+    height:100%;
 }
 
 .card::before{
@@ -290,6 +293,9 @@ nav a:hover{
 
 .card-content{
     padding:18px 18px 22px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
 }
 
 .card h3{
