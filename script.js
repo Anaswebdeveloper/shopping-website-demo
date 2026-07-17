@@ -168,12 +168,12 @@ function renderProducts(list){
 <div class="card">
 
     <div class="card-image">
-        <a href="product.html?id=${product.id}">
+
         <img
             src="${product.image}"
             onerror="handleImageError(this)"
         >
-        </a>
+
     </div>
 
     <div class="card-content">
@@ -202,12 +202,12 @@ function renderProducts(list){
 
         <br><br>
 
-        <div class="quantity-controls home-controls">
+        <div class="quantity-controls" style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
             ${quantity === 0 ? `
-                <button onclick="addToCart(${product.id})" class="home-add-btn">Add to cart</button>
+                <button onclick="addToCart(${product.id})" style="flex:1;padding:8px;">Add to cart</button>
             ` : `
                 <button onclick="decreaseQuantityById(${product.id})">−</button>
-                <span class="quantity-value">${quantity}</span>
+                <span style="font-weight:bold;flex:1;text-align:center;">${quantity}</span>
                 <button onclick="addToCart(${product.id})">+</button>
             `}
         </div>
@@ -357,6 +357,35 @@ function decreaseQuantityById(id){
 // PRODUCT PAGE
 // --------------------
 
+function renderRecommendationSection(product, allProducts) {
+    const recommendations = allProducts
+        .filter(item => item.category === product.category && item.id !== product.id)
+        .slice(0, 4);
+
+    if (recommendations.length === 0) {
+        return "";
+    }
+
+    return `
+        <section class="recommendations">
+            <h2>Recommended in ${product.category}</h2>
+            <div class="recommendations-grid">
+                ${recommendations.map(rec => `
+                    <article class="recommendation-card">
+                        <a href="product.html?id=${rec.id}">
+                            <img src="${rec.image}" onerror="handleImageError(this)" alt="${rec.name}">
+                            <div class="recommendation-info">
+                                <h3>${rec.name}</h3>
+                                <p>${money(rec.price)}</p>
+                            </div>
+                        </a>
+                    </article>
+                `).join("")}
+            </div>
+        </section>
+    `;
+}
+
 function loadProductPage() {
 
     const box = document.getElementById("product");
@@ -398,16 +427,18 @@ function loadProductPage() {
 
                     <h1>${product.name}</h1>
 
+                    <p class="category-label">Category: ${product.category}</p>
+
                     <p class="price">${money(product.price)}</p>
 
                     <p>${product.description}</p>
 
                     <div class="quantity-controls">
                         ${quantity === 0 ? `
-                            <button onclick="addToCart(${product.id})">Add to cart</button>
+                            <button onclick="addToCart(${product.id})" style="padding:8px;">Add to cart</button>
                         ` : `
                             <button onclick="decreaseQuantityById(${product.id})">−</button>
-                            <span class="quantity-value">${quantity}</span>
+                            <span style="margin:0 10px;font-weight:bold;">${quantity}</span>
                             <button onclick="addToCart(${product.id})">+</button>
                         `}
                     </div>
@@ -415,6 +446,8 @@ function loadProductPage() {
                 </div>
 
             </div>
+
+            ${renderRecommendationSection(product, data)}
 
             `;
 
