@@ -298,6 +298,10 @@ nav a:hover{
     flex:1;
 }
 
+.card-content > .quantity-controls{
+    margin-top:auto;
+}
+
 .card h3{
     margin-bottom:8px;
     font-size:18px;
