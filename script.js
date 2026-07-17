@@ -1,5 +1,5 @@
 // =======================================
-// MiniStore v2
+// Shopping Demo v2
 // =======================================
 
 const PRODUCT_FILE = "products.json";
