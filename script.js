@@ -492,7 +492,9 @@ function loadCartPage() {
 <div class="cart-item">
 
     <div style="display:flex;gap:10px;align-items:center;">
+        <a href="product.html?id=${item.id}" style="text-decoration:none;color:inherit;">
         <img src="${item.image}" onerror="handleImageError(this)" style="width:180px;height:250px;object-fit:cover;border-radius:6px;"> 
+        </a>
         <div>
             <h3 style="margin:0">${item.name}</h3>
             <p style="margin:4px 0">${money(item.price)}</p>
