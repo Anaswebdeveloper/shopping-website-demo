@@ -17,26 +17,26 @@
     --base-font-size:16px;
 
     /* Colors */
-    --bg: #1c1426; /* deep plum */
-    --surface: #261a35;
-    --muted: #b8a9c8;
-    --text: #f6eefc;
-    --accent: #7c4dff; /* vivid purple */
-    --accent-2: #b388ff; /* soft lavender */
-    --card-bg: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(168,139,255,0.08));
-    --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(168,139,255,0.08));
-    --glass-border: rgba(255,255,255,0.16);
-    --glass-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 18px 45px rgba(28, 20, 38, 0.28);
+    --bg: #111827; /* deep midnight */
+    --surface: #1b2437;
+    --muted: #9aa8c4;
+    --text: #f0f4ff;
+    --accent: #5b7cff; /* blue-violet */
+    --accent-2: #8b9dff; /* soft twilight blue */
+    --card-bg: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(91,124,255,0.08));
+    --glass-bg: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(91,124,255,0.08));
+    --glass-border: rgba(255,255,255,0.14);
+    --glass-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 18px 45px rgba(7, 12, 24, 0.32);
 
     /* UI */
     --radius: 14px;
     --soft-radius: 10px;
     --product-image-height: 240px;
-    --shadow-1: 0 8px 30px rgba(28, 20, 38, 0.35);
+    --shadow-1: 0 8px 30px rgba(7, 12, 24, 0.38);
 }
 
 body{
-    background: linear-gradient(180deg, #1a1222 0%, #261a35 60%);
+    background: linear-gradient(180deg, #0f172a 0%, #1f2a44 60%);
     color:var(--text);
     font-family:var(--font-sans);
     font-size:var(--base-font-size);
@@ -64,13 +64,13 @@ body::after{
 body::before{
     top:-120px;
     left:-120px;
-    background:radial-gradient(circle, rgba(124,77,255,0.42), transparent 70%);
+    background:radial-gradient(circle, rgba(91,124,255,0.38), transparent 72%);
 }
 
 body::after{
     bottom:-140px;
     right:-120px;
-    background:radial-gradient(circle, rgba(179,136,255,0.34), transparent 70%);
+    background:radial-gradient(circle, rgba(139,157,255,0.3), transparent 72%);
 }
 
 /* ==========================
@@ -92,7 +92,7 @@ header{
     left:0;
     right:0;
     z-index:1000;
-    background:rgba(34, 24, 47, 0.74);
+    background:rgba(10, 16, 32, 0.74);
     backdrop-filter:blur(22px) saturate(180%);
     -webkit-backdrop-filter:blur(22px) saturate(180%);
     color:var(--text);
